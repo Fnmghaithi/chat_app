@@ -1,5 +1,6 @@
 import 'package:chat_app/common/utils/colors.dart';
 import 'package:chat_app/common/widgets/custom_elevated_button.dart';
+import 'package:chat_app/extension/custom_theme_extension.dart';
 import 'package:chat_app/feature/welcome/widgets/language_button.dart';
 import 'package:chat_app/feature/welcome/widgets/privacy_and_terms.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                   child: Image.asset(
                     'assets/images/circle.png',
-                    color: CustomColors.greenDark,
+                    color: context.theme.circleImageColor,
                   ),
                 ),
               ),

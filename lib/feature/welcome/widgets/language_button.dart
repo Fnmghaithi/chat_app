@@ -1,4 +1,5 @@
 import 'package:chat_app/common/utils/colors.dart';
+import 'package:chat_app/extension/custom_theme_extension.dart';
 import 'package:flutter/material.dart';
 
 class LanguageButton extends StatelessWidget {
@@ -9,12 +10,12 @@ class LanguageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color(0xFF182229),
+      color: context.theme.langBtnColor,
       borderRadius: BorderRadius.circular(20),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         splashFactory: NoSplash.splashFactory,
-        highlightColor: const Color(0xFF09141A),
+        highlightColor: context.theme.langBtnHighlightColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 16,

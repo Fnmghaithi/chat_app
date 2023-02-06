@@ -1,4 +1,4 @@
-import 'package:chat_app/common/utils/colors.dart';
+import 'package:chat_app/extension/custom_theme_extension.dart';
 import 'package:flutter/material.dart';
 
 class PrivacyAndTerms extends StatelessWidget {
@@ -15,26 +15,26 @@ class PrivacyAndTerms extends StatelessWidget {
       ),
       child: RichText(
         textAlign: TextAlign.center,
-        text: const TextSpan(
+        text: TextSpan(
           text: 'Read Our ',
           style: TextStyle(
-            color: CustomColors.greyDark,
+            color: context.theme.greyColor,
             height: 1.5,
           ),
           children: [
             TextSpan(
               text: 'Privacy Policy. ',
               style: TextStyle(
-                color: CustomColors.blueDark,
+                color: context.theme.blueColor,
               ),
             ),
-            TextSpan(
+            const TextSpan(
               text: 'Tap "Agree and continue" to accept the ',
             ),
             TextSpan(
               text: 'Terms of Services.',
               style: TextStyle(
-                color: CustomColors.blueDark,
+                color: context.theme.blueColor,
               ),
             ),
           ],
