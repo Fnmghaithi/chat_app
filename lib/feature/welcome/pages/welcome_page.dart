@@ -10,7 +10,6 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.backgroundDark,
       body: SafeArea(
         child: Column(
           children: [
