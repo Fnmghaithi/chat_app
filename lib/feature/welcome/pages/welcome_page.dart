@@ -1,3 +1,4 @@
+import 'package:chat_app/common/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -6,7 +7,7 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF111B21),
+      backgroundColor: CustomColors.backgroundDark,
       body: SafeArea(
         child: Column(
           children: [
@@ -20,7 +21,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                   child: Image.asset(
                     'assets/images/circle.png',
-                    color: const Color(0xFF00A884),
+                    color: CustomColors.greenDark,
                   ),
                 ),
               ),
@@ -36,47 +37,15 @@ class WelcomePage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 20,
-                    ),
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: const TextSpan(
-                        text: 'Read Our ',
-                        style: TextStyle(
-                          color: Color(0xFF8696A0),
-                          height: 1.5,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: 'Privacy Policy. ',
-                            style: TextStyle(
-                              color: Color(0xFF53BDEB),
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'Tap "Agree and continue" to accept the ',
-                          ),
-                          TextSpan(
-                            text: 'Terms of Services.',
-                            style: TextStyle(
-                              color: Color(0xFF53BDEB),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  const PrivacyAndTerms(),
                   SizedBox(
                     height: 42,
                     width: MediaQuery.of(context).size.width - 100,
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF00A884),
-                        foregroundColor: const Color(0xFF111B21),
+                        backgroundColor: CustomColors.greenDark,
+                        foregroundColor: CustomColors.backgroundDark,
                         splashFactory: NoSplash.splashFactory,
                         elevation: 0,
                         shadowColor: Colors.transparent,
@@ -106,19 +75,19 @@ class WelcomePage extends StatelessWidget {
                           children: const [
                             Icon(
                               Icons.language,
-                              color: Color(0xFF00A884),
+                              color: CustomColors.greenDark,
                             ),
                             SizedBox(width: 10),
                             Text(
                               'English',
                               style: TextStyle(
-                                color: Color(0xFF00A884),
+                                color: CustomColors.greenDark,
                               ),
                             ),
                             SizedBox(width: 10),
                             Icon(
                               Icons.keyboard_arrow_down,
-                              color: Color(0xFF00A884),
+                              color: CustomColors.greenDark,
                             ),
                           ],
                         ),
@@ -127,6 +96,49 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class PrivacyAndTerms extends StatelessWidget {
+  const PrivacyAndTerms({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 30,
+        vertical: 20,
+      ),
+      child: RichText(
+        textAlign: TextAlign.center,
+        text: const TextSpan(
+          text: 'Read Our ',
+          style: TextStyle(
+            color: CustomColors.greyDark,
+            height: 1.5,
+          ),
+          children: [
+            TextSpan(
+              text: 'Privacy Policy. ',
+              style: TextStyle(
+                color: CustomColors.blueDark,
+              ),
+            ),
+            TextSpan(
+              text: 'Tap "Agree and continue" to accept the ',
+            ),
+            TextSpan(
+              text: 'Terms of Services.',
+              style: TextStyle(
+                color: CustomColors.blueDark,
               ),
             ),
           ],
