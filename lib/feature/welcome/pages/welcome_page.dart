@@ -1,4 +1,5 @@
 import 'package:chat_app/common/utils/colors.dart';
+import 'package:chat_app/feature/welcome/widgets/privacy_and_terms.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -38,22 +39,9 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                   const PrivacyAndTerms(),
-                  SizedBox(
-                    height: 42,
-                    width: MediaQuery.of(context).size.width - 100,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: CustomColors.greenDark,
-                        foregroundColor: CustomColors.backgroundDark,
-                        splashFactory: NoSplash.splashFactory,
-                        elevation: 0,
-                        shadowColor: Colors.transparent,
-                      ),
-                      child: const Text(
-                        'AGREE AND CONTINUE',
-                      ),
-                    ),
+                  CustomElevatedButton(
+                    text: 'AGREE AND CONTINUE',
+                    onPressed: () {},
                   ),
                   const SizedBox(
                     height: 50,
@@ -105,43 +93,33 @@ class WelcomePage extends StatelessWidget {
   }
 }
 
-class PrivacyAndTerms extends StatelessWidget {
-  const PrivacyAndTerms({
+class CustomElevatedButton extends StatelessWidget {
+  final double? buttonWidth;
+  final VoidCallback onPressed;
+  final String text;
+  const CustomElevatedButton({
+    this.buttonWidth,
+    required this.onPressed,
+    required this.text,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: 20,
-      ),
-      child: RichText(
-        textAlign: TextAlign.center,
-        text: const TextSpan(
-          text: 'Read Our ',
-          style: TextStyle(
-            color: CustomColors.greyDark,
-            height: 1.5,
-          ),
-          children: [
-            TextSpan(
-              text: 'Privacy Policy. ',
-              style: TextStyle(
-                color: CustomColors.blueDark,
-              ),
-            ),
-            TextSpan(
-              text: 'Tap "Agree and continue" to accept the ',
-            ),
-            TextSpan(
-              text: 'Terms of Services.',
-              style: TextStyle(
-                color: CustomColors.blueDark,
-              ),
-            ),
-          ],
+    return SizedBox(
+      height: 42,
+      width: buttonWidth ?? MediaQuery.of(context).size.width - 100,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: CustomColors.greenDark,
+          foregroundColor: CustomColors.backgroundDark,
+          splashFactory: NoSplash.splashFactory,
+          elevation: 0,
+          shadowColor: Colors.transparent,
+        ),
+        child: Text(
+          text,
         ),
       ),
     );
