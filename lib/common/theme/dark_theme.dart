@@ -1,6 +1,7 @@
 import 'package:chat_app/common/utils/colors.dart';
 import 'package:chat_app/extension/custom_theme_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 ThemeData darkTheme() {
   final ThemeData base = ThemeData.dark();
@@ -8,6 +9,12 @@ ThemeData darkTheme() {
     backgroundColor: CustomColors.backgroundDark,
     scaffoldBackgroundColor: CustomColors.backgroundDark,
     extensions: [CustomThemeExtension.darkMode],
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+      ),
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: CustomColors.greenDark,
