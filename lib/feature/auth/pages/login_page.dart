@@ -2,6 +2,7 @@ import 'package:chat_app/common/utils/colors.dart';
 import 'package:chat_app/common/widgets/custom_elevated_button.dart';
 import 'package:chat_app/extension/custom_theme_extension.dart';
 import 'package:chat_app/feature/auth/widgets/custom_text_field.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -30,6 +31,45 @@ class _LoginPageState extends State<LoginPage> {
     countryCodeController.dispose();
     phoneNumberController.dispose();
     super.dispose();
+  }
+
+  showCountryCodePicker() {
+    showCountryPicker(
+      context: context,
+      showPhoneCode: true,
+      favorite: ['OM'],
+      countryListTheme: CountryListThemeData(
+        bottomSheetHeight: 600,
+        backgroundColor: Theme.of(context).backgroundColor,
+        flagSize: 22,
+        borderRadius: BorderRadius.circular(20),
+        textStyle: TextStyle(color: context.theme.greyColor),
+        inputDecoration: InputDecoration(
+          labelStyle: TextStyle(
+            color: context.theme.greyColor,
+          ),
+          prefixIcon: const Icon(
+            Icons.language,
+            color: CustomColors.greenDark,
+          ),
+          hintText: 'Search Country Code or Name',
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: context.theme.greyColor!.withOpacity(0.2),
+            ),
+          ),
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: CustomColors.greenDark,
+            ),
+          ),
+        ),
+      ),
+      onSelect: (country) {
+        countryNameController.text = country.name;
+        countryCodeController.text = country.phoneCode;
+      },
+    );
   }
 
   @override
@@ -92,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: CustomTextField(
                 controller: countryNameController,
-                onTap: () {},
+                onTap: showCountryCodePicker,
                 readOnly: true,
                 suffixIcon: const Icon(
                   Icons.arrow_drop_down,
@@ -108,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     width: 70,
                     child: CustomTextField(
-                      onTap: () {},
+                      onTap: showCountryCodePicker,
                       controller: countryCodeController,
                       prefixText: '+',
                       readOnly: true,
