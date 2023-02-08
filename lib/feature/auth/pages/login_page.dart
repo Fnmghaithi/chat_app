@@ -1,5 +1,6 @@
 import 'package:chat_app/common/utils/colors.dart';
 import 'package:chat_app/common/widgets/custom_elevated_button.dart';
+import 'package:chat_app/common/widgets/custom_icon_button.dart';
 import 'package:chat_app/extension/custom_theme_extension.dart';
 import 'package:chat_app/feature/auth/widgets/custom_text_field.dart';
 import 'package:country_picker/country_picker.dart';
@@ -87,16 +88,9 @@ class _LoginPageState extends State<LoginPage> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.more_vert,
-              color: context.theme.greyColor,
-            ),
-            splashRadius: 22,
-            iconSize: 22,
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(minWidth: 40),
+          CustomIconButton(
+            onTap: () {},
+            icon: Icons.more_vert,
           ),
         ],
       ),

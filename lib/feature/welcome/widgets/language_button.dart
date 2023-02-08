@@ -1,4 +1,5 @@
 import 'package:chat_app/common/utils/colors.dart';
+import 'package:chat_app/common/widgets/custom_icon_button.dart';
 import 'package:chat_app/extension/custom_theme_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -31,16 +32,9 @@ class LanguageButton extends StatelessWidget {
                 Row(
                   children: [
                     const SizedBox(width: 20),
-                    IconButton(
-                      splashColor: Colors.transparent,
-                      splashRadius: 22,
-                      iconSize: 22,
-                      padding: EdgeInsets.zero,
-                      constraints: const BoxConstraints(minWidth: 40),
-                      icon: const Icon(Icons.close_outlined),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
+                    CustomIconButton(
+                      onTap: () => Navigator.of(context).pop(),
+                      icon: Icons.close_outlined,
                     ),
                     const SizedBox(width: 10),
                     const Text(
