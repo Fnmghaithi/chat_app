@@ -33,5 +33,11 @@ ThemeData darkTheme() {
         ),
       ),
     ),
+    dialogBackgroundColor: CustomColors.greyBackground,
+    dialogTheme: DialogTheme(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
   );
 }
