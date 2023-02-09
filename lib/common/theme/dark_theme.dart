@@ -10,6 +10,7 @@ ThemeData darkTheme() {
     scaffoldBackgroundColor: CustomColors.backgroundDark,
     extensions: [CustomThemeExtension.darkMode],
     appBarTheme: const AppBarTheme(
+      titleTextStyle: TextStyle(fontSize: 18),
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.light,
