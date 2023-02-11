@@ -1,8 +1,6 @@
 import 'package:chat_app/common/theme/dark_theme.dart';
 import 'package:chat_app/common/theme/light_theme.dart';
-import 'package:chat_app/feature/auth/pages/login_page.dart';
-import 'package:chat_app/feature/auth/pages/verification_page.dart';
-import 'package:chat_app/feature/welcome/pages/welcome_page.dart';
+import 'package:chat_app/feature/auth/pages/user_info_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme(),
       darkTheme: darkTheme(),
       themeMode: ThemeMode.system,
-      home: const VerificationPage(),
+      home: const UserInfoPage(),
     );
   }
 }
