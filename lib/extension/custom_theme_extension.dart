@@ -15,6 +15,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     langBtnColor: Color(0xFFF7F8FA),
     langBtnHighlightColor: Color(0xFFE8E8ED),
     authAppbarTextColor: CustomColors.greenLight,
+    photoIconBgColor: Color(0xFFF0F2F3),
+    photoIconColor: Color(0xFF9DAAB3),
   );
 
   static const darkMode = CustomThemeExtension(
@@ -24,6 +26,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     langBtnColor: Color(0xFF182229),
     langBtnHighlightColor: Color(0xFF09141A),
     authAppbarTextColor: Color(0xFFE9EDEF),
+    photoIconBgColor: Color(0xFF283339),
+    photoIconColor: Color(0xFF61717B),
   );
 
   final Color? circleImageColor;
@@ -32,6 +36,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
   final Color? langBtnColor;
   final Color? langBtnHighlightColor;
   final Color? authAppbarTextColor;
+  final Color? photoIconBgColor;
+  final Color? photoIconColor;
 
   const CustomThemeExtension({
     this.circleImageColor,
@@ -40,6 +46,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     this.langBtnColor,
     this.langBtnHighlightColor,
     this.authAppbarTextColor,
+    this.photoIconBgColor,
+    this.photoIconColor,
   });
 
   @override
@@ -50,6 +58,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     Color? langBtnColor,
     Color? langBtnHighlightColor,
     Color? authAppbarTextColor,
+    Color? photoIconBgColor,
+    Color? photoIconColor,
   }) {
     return CustomThemeExtension(
       circleImageColor: circleImageColor ?? this.circleImageColor,
@@ -59,6 +69,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
       langBtnHighlightColor:
           langBtnHighlightColor ?? this.langBtnHighlightColor,
       authAppbarTextColor: authAppbarTextColor ?? this.authAppbarTextColor,
+      photoIconBgColor: photoIconBgColor ?? this.photoIconBgColor,
+      photoIconColor: photoIconColor ?? this.photoIconColor,
     );
   }
 
@@ -70,9 +82,13 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
       circleImageColor: Color.lerp(circleImageColor, other.circleImageColor, t),
       greyColor: Color.lerp(greyColor, other.greyColor, t),
       blueColor: Color.lerp(blueColor, other.blueColor, t),
-      langBtnColor: Color.lerp(blueColor, other.langBtnColor, t),
+      langBtnColor: Color.lerp(langBtnColor, other.langBtnColor, t),
       langBtnHighlightColor:
-          Color.lerp(blueColor, other.langBtnHighlightColor, t),
+          Color.lerp(langBtnHighlightColor, other.langBtnHighlightColor, t),
+      authAppbarTextColor:
+          Color.lerp(authAppbarTextColor, other.authAppbarTextColor, t),
+      photoIconBgColor: Color.lerp(photoIconBgColor, other.photoIconBgColor, t),
+      photoIconColor: Color.lerp(photoIconColor, other.photoIconColor, t),
     );
   }
 }
